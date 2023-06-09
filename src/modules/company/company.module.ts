@@ -4,7 +4,7 @@ import { CompanyController } from './company.controller';
 import { Company, CompanySchema } from './company.schema';
 
 @Module({
-  imports:[MongooseModule.forFeature([{name: Company.name, schema: CompanySchema}])],
+  imports: [MongooseModule.forFeature([{ name: Company.name, schema: CompanySchema }])],
   controllers: [CompanyController]
 })
-export class CompanyModule {}
+export class CompanyModule { }
