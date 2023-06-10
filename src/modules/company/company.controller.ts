@@ -1,13 +1,16 @@
 import { Controller, Get, Post, Body, Param, UseInterceptors } from '@nestjs/common';
 import { CreateCompanyDto } from './dtos/create-company.dto';
+import { ReturnCreateCompanyDto } from './dtos/return-create-company.dto';
+import { CompanyDto } from './dtos/return-company.dto';
 import { CompanyService } from './company.service';
 import { SerializeInterceptor } from 'src/serialize.interceptor';
+
 
 @Controller('company')
 export class CompanyController {
   constructor(private companyService: CompanyService) { }
 
-  @UseInterceptors(SerializeInterceptor)
+  @UseInterceptors(new SerializeInterceptor(ReturnCreateCompanyDto))
   @Post()
   createCompany(@Body() payload: CreateCompanyDto) {
     const newCompanyInfo = this.companyService.create(payload);
