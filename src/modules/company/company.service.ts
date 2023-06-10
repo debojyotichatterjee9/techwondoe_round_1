@@ -9,6 +9,7 @@ export class CompanyService {
 
   async create(createCompanyDto: CreateCompanyDto): Promise<Company> {
     const newCompany = new this.companyModel(createCompanyDto);
-    return newCompany.save();
+    const newCompanyInfo = newCompany.save();
+    return newCompanyInfo;
   }
 }

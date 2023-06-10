@@ -4,11 +4,11 @@ import { CompanyService } from './company.service';
 
 @Controller('company')
 export class CompanyController {
-  constructor(public companyService: CompanyService) { }
+  constructor(private companyService: CompanyService) { }
   @Post()
-  createCompany(@Body() body: CreateCompanyDto) {
-    console.log(body);
-    return this.companyService.create(body);
+  createCompany(@Body() payload: CreateCompanyDto) {
+    const newCompanyInfo = this.companyService.create(payload);
+    return newCompanyInfo;
   }
   @Get()
   listCompanies() {
