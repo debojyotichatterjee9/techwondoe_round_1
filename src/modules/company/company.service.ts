@@ -7,9 +7,13 @@ import { CreateCompanyDto } from './dtos/create-company.dto';
 export class CompanyService {
   constructor(@InjectModel(Company.name) private companyModel: Model<Company>) { }
 
-  async create(createCompanyDto: CreateCompanyDto): Promise<Company> {
+  async createCompany(createCompanyDto: CreateCompanyDto): Promise<Company> {
     const newCompany = new this.companyModel(createCompanyDto);
     const newCompanyInfo = newCompany.save();
     return newCompanyInfo;
+  }
+
+  async getCompanyDetails(id: String) {
+    return this.companyModel.findById(id);
   }
 }
