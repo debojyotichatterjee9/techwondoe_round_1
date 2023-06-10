@@ -7,6 +7,6 @@ export class CreateCompanyDto {
   @IsString()
   @IsString()
   address: String;
-  @IsDate()
+  @IsString()
   inception: String;
 }
