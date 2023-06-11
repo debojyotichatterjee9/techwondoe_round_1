@@ -21,12 +21,12 @@ export class CompanyController {
 
   @Serialize(CompanyListDto)
   @Get('/list')
-  listCompanies(@Query('name') name: String) {
-    return this.companyService.listCompanies(name);
+  listCompanies(@Query('name') name: string, @Query('page') page: number, @Query('limit') limit: number) {
+    return this.companyService.listCompanies(name, page, limit);
   }
   @Serialize(CompanyDto)
   @Get('/:id')
-  getCompanyDetails(@Param('id') id: String) {
+  getCompanyDetails(@Param('id') id: string) {
     return this.companyService.getCompanyDetails(id);
   }
 }

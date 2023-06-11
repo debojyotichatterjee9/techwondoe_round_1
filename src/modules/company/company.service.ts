@@ -13,18 +13,24 @@ export class CompanyService {
     return newCompanyInfo;
   }
 
-  async listCompanies(name: String) {
+  async listCompanies(name: string, page: number, limit: number) {
     let queryFilters = {};
-    if(name) {
-      queryFilters = {name: {'$regex': `.*${name}.*`, '$options': 'i'}}
+    let skipRecords = 0;
+    if (name) {
+      queryFilters = { name: { '$regex': `.*${name}.*`, '$options': 'i' } }
     }
-    const companyList = await this.companyModel.find(queryFilters).exec();
+    page = page ? Number(page) : 1;
+    limit = limit ? Number(limit) : 10;
+    if (page > 1) {
+      skipRecords = (page - 1) * limit
+    }
+    const companyList = await this.companyModel.find(queryFilters).skip(skipRecords).limit(limit).exec();
     const totalCompanyCount = await this.companyModel.find(queryFilters).count().exec();
     console.log(totalCompanyCount)
     const companyListResp = {
-      total_companies: totalCompanyCount,
-      limit: 25,
-      page: 1,
+      total: totalCompanyCount,
+      limit: limit,
+      page: page,
       companies: companyList
     }
     return (companyListResp);

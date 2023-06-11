@@ -11,7 +11,7 @@ class CompanyType {
 }
 export class CompanyListDto {
   @Expose()
-  total_companies: Number;
+  total: Number;
   @Expose()
   limit: Number;
   @Expose()
