@@ -1,6 +1,8 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException, BadRequestException } from '@nestjs/common';
 import { Model } from "mongoose";
 import { InjectModel } from '@nestjs/mongoose';
+import { version as uuidVersion } from 'uuid';
+import { validate as uuidValidate } from 'uuid';
 import { Company } from './company.schema';
 import { CreateCompanyDto } from './dtos/create-company.dto';
 @Injectable()
@@ -26,7 +28,6 @@ export class CompanyService {
     }
     const companyList = await this.companyModel.find(queryFilters).skip(skipRecords).limit(limit).exec();
     const totalCompanyCount = await this.companyModel.find(queryFilters).count().exec();
-    console.log(totalCompanyCount)
     const companyListResp = {
       total: totalCompanyCount,
       limit: limit,
@@ -37,6 +38,15 @@ export class CompanyService {
   }
 
   async getCompanyDetails(id: String) {
-    return this.companyModel.findById(id);
+    if (!uuidValidate(id) && uuidVersion(id) != 4) {
+      throw new BadRequestException("Invalid UUID provided.")
+    }
+    const companyInfo = await this.companyModel.findById(id).exec();
+    if (companyInfo) {
+      return companyInfo;
+    }
+    else {
+      throw new NotFoundException("A company with the requested ID does not exist.");
+    }
   }
 }
