@@ -13,6 +13,23 @@ export class CompanyService {
     return newCompanyInfo;
   }
 
+  async listCompanies(name: String) {
+    let queryFilters = {};
+    if(name) {
+      queryFilters = {name: {'$regex': `.*${name}.*`, '$options': 'i'}}
+    }
+    const companyList = await this.companyModel.find(queryFilters).exec();
+    const totalCompanyCount = await this.companyModel.find(queryFilters).count().exec();
+    console.log(totalCompanyCount)
+    const companyListResp = {
+      total_companies: totalCompanyCount,
+      limit: 25,
+      page: 1,
+      companies: companyList
+    }
+    return (companyListResp);
+  }
+
   async getCompanyDetails(id: String) {
     return this.companyModel.findById(id);
   }
