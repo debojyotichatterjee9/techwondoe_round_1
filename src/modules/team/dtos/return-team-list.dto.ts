@@ -15,7 +15,7 @@ class TeamType {
     @Expose()
     // @Transform(({ obj, value }) => value ? value : obj.company) // know error in package on github issues
     @Type(() => CompanyType)
-    company_id: Array<CompanyType>;
+    company_id: CompanyType;
 }
 export class TeamListDto {
     @Expose()
