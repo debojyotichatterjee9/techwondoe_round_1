@@ -6,7 +6,7 @@ import { validate as uuidValidate } from 'uuid';
 import { Company } from './company.schema';
 import { Team } from '../team/team.schema';
 import { CreateCompanyDto } from './dtos/create-company.dto';
-import { CreateTeamDto } from '../team/create-team.dto';
+import { CreateTeamDto } from '../team/dtos/create-team.dto';
 @Injectable()
 export class CompanyService {
   constructor(
@@ -69,5 +69,31 @@ export class CompanyService {
     else {
       throw new NotFoundException("A company with the requested ID does not exist.");
     }
+  }
+
+
+  async getCompanyTeamList(companyId: string, name: string, page: number, limit: number) {
+    let queryFilters = {};
+    let skipRecords = 0;
+    if (name) {
+      queryFilters = { company_id: companyId, name: { '$regex': `.*${name}.*`, '$options': 'i' } };
+    }
+    else {
+      queryFilters = { company_id: companyId };
+    }
+    page = page ? Number(page) : 1;
+    limit = limit ? Number(limit) : 10;
+    if (page > 1) {
+      skipRecords = (page - 1) * limit
+    }
+    const companyTeamList = await this.teamModel.find(queryFilters).skip(skipRecords).limit(limit).exec();
+    const totalCompanyTeamCount = await this.teamModel.find(queryFilters).count().exec();
+    const companyTeamListResp = {
+      total: totalCompanyTeamCount,
+      limit: limit,
+      page: page,
+      teams: companyTeamList
+    }
+    return (companyTeamListResp);
   }
 }

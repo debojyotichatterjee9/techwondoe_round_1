@@ -10,7 +10,7 @@ export class Team {
   _id: String
   @Prop({ required: true })
   name: String;
-  @Prop()
+  @Prop({ref:"Company"})
   company_id: String;
   @Prop()
   team_lead_name: String;
