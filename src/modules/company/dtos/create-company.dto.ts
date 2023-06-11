@@ -1,12 +1,11 @@
 import { IsString, IsDate } from 'class-validator';
 export class CreateCompanyDto {
   @IsString()
-  name: String;
+  name: string;
   @IsString()
-  ceo: String;
+  ceo: string;
   @IsString()
+  address: string;
   @IsString()
-  address: String;
-  @IsString()
-  inception: String;
+  inception: string;
 }
