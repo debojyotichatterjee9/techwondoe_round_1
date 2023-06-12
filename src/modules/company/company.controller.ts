@@ -1,4 +1,5 @@
-import { Controller, Get, Post, Body, Param, Query, UseInterceptors } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Query, UseGuards } from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
 import { CreateCompanyDto } from './dtos/create-company.dto';
 import { ReturnCreateCompanyDto } from './dtos/return-create-company.dto';
 import { CompanyListDto } from './dtos/return-company-list.dto';
@@ -10,6 +11,7 @@ import { CompanyService } from './company.service';
 import { Serialize } from 'src/interceptors/serialize.interceptor';
 
 
+@UseGuards(AuthGuard('jwt'))
 @Controller('company')
 export class CompanyController {
   constructor(private companyService: CompanyService) { }
