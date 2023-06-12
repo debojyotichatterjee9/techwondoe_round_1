@@ -3,8 +3,7 @@
 
 #### 1. Clone the project
 ```
-$ git clone https://<<username>>@bitbucket.org/debojyotichatterjee09/
-booking_system.git
+$ git clone https://github.com/debojyotichatterjee9/techwondoe_round_1.git
 ```
 
 ### 2. Go to the project directory
