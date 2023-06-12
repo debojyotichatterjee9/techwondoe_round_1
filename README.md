@@ -8,7 +8,7 @@ $ git clone https://github.com/debojyotichatterjee9/techwondoe_round_1.git
 
 ### 2. Go to the project directory
 ```
-$ cd client-booking-dispatch
+$ cd techwondoe_round_1
 ```
 ### 3. Install dependencies using npm, yarn or pnpm
 ```
