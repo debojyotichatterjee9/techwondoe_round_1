@@ -20,6 +20,7 @@ $ npm install
 $  npm run start:dev
 ```
 ### 5. To Run with Docker
+(Note: Please make sure that the db uri is set to MONGODB_DOCKER_URI in the file: src/app/app.module.ts)
 ```
 docker-compose -f docker-compose.yml -f docker-compose.dev.yml up --detach --build
 
