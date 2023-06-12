@@ -1,0 +1,878 @@
+{
+	"info": {
+		"_postman_id": "7f50951e-a366-45a4-9a91-7b8ebb18fddb",
+		"name": "techwondoe_round_1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6420440"
+	},
+	"item": [
+		{
+			"name": "Company",
+			"item": [
+				{
+					"name": "Create Company",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Il9KMThjVS1ZME9EU204TWNVNUlUOSJ9.eyJpc3MiOiJodHRwczovL2Rldi1vcXduaHB1MXcyajB3Mzg1LnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJZU3dCdTY4UXZrOWViSjNvQ1RreElCTFJMa3M3VTV5c0BjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly90ZWNod29uZG9lLWFwaS5kZW1vLmNvbSIsImlhdCI6MTY4NjU2MzMzMywiZXhwIjoxNjg2NjQ5NzMzLCJhenAiOiJZU3dCdTY4UXZrOWViSjNvQ1RreElCTFJMa3M3VTV5cyIsImd0eSI6ImNsaWVudC1jcmVkZW50aWFscyJ9.i7BLRQ1FWlvBVKJHvcwj_vcix_rs63QiJ2jvEiMKS06Sd2QZErNoBRJc9Alwq5MkC7QrSQs_hb1LbjyTD13VGv7VhEIZqT5rwEcqbNPT7ypAF3uQ84zhN0jP87Xo3vmsCcB4d01PRuhBCYKEom6BaFnlF6uemO2PJ9hc6uSyruauI2D8EqeQ5EC7paguMmorWWz1xiMhDTi7HzT-cs_nx4v-vDhtFJccI-NsLtRNrNdRICFQOr42cG27dNKZeVJ4vVtnzlMa_5vEhZW3JpGBr2xBORkxuUPb7R1lNDnXUmOxa4USLmoQj1o-ktRw9t4X56bLawkhDPKBfDvdh7IifQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"{{$randomCompanyName}}\",\n    \"ceo\": \"{{$randomFullName}}\",\n    \"address\": \"{{$randomStreetAddress}}\",\n    \"inception\": \"{{$randomDatePast}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/company/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"company",
+								"create"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Company",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"{{$randomCompanyName}}\",\n    \"ceo\": \"{{$randomFullName}}\",\n    \"address\": \"{{$randomStreetAddress}}\",\n    \"inception\": \"{{$randomDatePast}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/company/create",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"company",
+										"create"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "45"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2d-RmBfCilr8DM04RewemcMmRMFt1U\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 12 Jun 2023 14:24:51 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"9e5c9f14-47b8-40bf-958a-cca5dc3193a5\"\n}"
+						}
+					]
+				},
+				{
+					"name": "List Companies",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Il9KMThjVS1ZME9EU204TWNVNUlUOSJ9.eyJpc3MiOiJodHRwczovL2Rldi1vcXduaHB1MXcyajB3Mzg1LnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJZU3dCdTY4UXZrOWViSjNvQ1RreElCTFJMa3M3VTV5c0BjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly90ZWNod29uZG9lLWFwaS5kZW1vLmNvbSIsImlhdCI6MTY4NjU2MzMzMywiZXhwIjoxNjg2NjQ5NzMzLCJhenAiOiJZU3dCdTY4UXZrOWViSjNvQ1RreElCTFJMa3M3VTV5cyIsImd0eSI6ImNsaWVudC1jcmVkZW50aWFscyJ9.i7BLRQ1FWlvBVKJHvcwj_vcix_rs63QiJ2jvEiMKS06Sd2QZErNoBRJc9Alwq5MkC7QrSQs_hb1LbjyTD13VGv7VhEIZqT5rwEcqbNPT7ypAF3uQ84zhN0jP87Xo3vmsCcB4d01PRuhBCYKEom6BaFnlF6uemO2PJ9hc6uSyruauI2D8EqeQ5EC7paguMmorWWz1xiMhDTi7HzT-cs_nx4v-vDhtFJccI-NsLtRNrNdRICFQOr42cG27dNKZeVJ4vVtnzlMa_5vEhZW3JpGBr2xBORkxuUPb7R1lNDnXUmOxa4USLmoQj1o-ktRw9t4X56bLawkhDPKBfDvdh7IifQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/company/list?name=Abbot&limit=5&page=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"company",
+								"list"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Abbot"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "List Companies",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/company/list?name=Abbot&limit=5&page=1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"company",
+										"list"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "Abbot"
+										},
+										{
+											"key": "limit",
+											"value": "5"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "184"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b8-t6cenOniGF7I6t4KTk68MH2mh9s\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 12 Jun 2023 14:27:16 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"total\": 1,\n    \"limit\": 5,\n    \"page\": 1,\n    \"companies\": [\n        {\n            \"id\": \"aa67d643-30d3-4544-85c1-233811373dea\",\n            \"name\": \"Abbott, Paucek and Altenwerth\",\n            \"ceo\": \"Wm Kuhn\",\n            \"inception\": \"2023-02-04T22:28:34.000Z\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Company Details",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Il9KMThjVS1ZME9EU204TWNVNUlUOSJ9.eyJpc3MiOiJodHRwczovL2Rldi1vcXduaHB1MXcyajB3Mzg1LnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJZU3dCdTY4UXZrOWViSjNvQ1RreElCTFJMa3M3VTV5c0BjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly90ZWNod29uZG9lLWFwaS5kZW1vLmNvbSIsImlhdCI6MTY4NjU2MzMzMywiZXhwIjoxNjg2NjQ5NzMzLCJhenAiOiJZU3dCdTY4UXZrOWViSjNvQ1RreElCTFJMa3M3VTV5cyIsImd0eSI6ImNsaWVudC1jcmVkZW50aWFscyJ9.i7BLRQ1FWlvBVKJHvcwj_vcix_rs63QiJ2jvEiMKS06Sd2QZErNoBRJc9Alwq5MkC7QrSQs_hb1LbjyTD13VGv7VhEIZqT5rwEcqbNPT7ypAF3uQ84zhN0jP87Xo3vmsCcB4d01PRuhBCYKEom6BaFnlF6uemO2PJ9hc6uSyruauI2D8EqeQ5EC7paguMmorWWz1xiMhDTi7HzT-cs_nx4v-vDhtFJccI-NsLtRNrNdRICFQOr42cG27dNKZeVJ4vVtnzlMa_5vEhZW3JpGBr2xBORkxuUPb7R1lNDnXUmOxa4USLmoQj1o-ktRw9t4X56bLawkhDPKBfDvdh7IifQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/company/3843ce4b-c197-4d0c-9891-3586d40213cf",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"company",
+								"3843ce4b-c197-4d0c-9891-3586d40213cf"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Company Details",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/company/3843ce4b-c197-4d0c-9891-3586d40213cf",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"company",
+										"3843ce4b-c197-4d0c-9891-3586d40213cf"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "139"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"8b-kqJj34347/9iwcXXwM1vkkN+TKY\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 12 Jun 2023 14:27:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"3843ce4b-c197-4d0c-9891-3586d40213cf\",\n    \"name\": \"Oberbrunner and Sons\",\n    \"ceo\": \"Miss Samuel Bode\",\n    \"inception\": \"2022-09-12T03:01:17.000Z\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Teams",
+			"item": [
+				{
+					"name": "Create Company Team",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Il9KMThjVS1ZME9EU204TWNVNUlUOSJ9.eyJpc3MiOiJodHRwczovL2Rldi1vcXduaHB1MXcyajB3Mzg1LnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJZU3dCdTY4UXZrOWViSjNvQ1RreElCTFJMa3M3VTV5c0BjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly90ZWNod29uZG9lLWFwaS5kZW1vLmNvbSIsImlhdCI6MTY4NjU2MzMzMywiZXhwIjoxNjg2NjQ5NzMzLCJhenAiOiJZU3dCdTY4UXZrOWViSjNvQ1RreElCTFJMa3M3VTV5cyIsImd0eSI6ImNsaWVudC1jcmVkZW50aWFscyJ9.i7BLRQ1FWlvBVKJHvcwj_vcix_rs63QiJ2jvEiMKS06Sd2QZErNoBRJc9Alwq5MkC7QrSQs_hb1LbjyTD13VGv7VhEIZqT5rwEcqbNPT7ypAF3uQ84zhN0jP87Xo3vmsCcB4d01PRuhBCYKEom6BaFnlF6uemO2PJ9hc6uSyruauI2D8EqeQ5EC7paguMmorWWz1xiMhDTi7HzT-cs_nx4v-vDhtFJccI-NsLtRNrNdRICFQOr42cG27dNKZeVJ4vVtnzlMa_5vEhZW3JpGBr2xBORkxuUPb7R1lNDnXUmOxa4USLmoQj1o-ktRw9t4X56bLawkhDPKBfDvdh7IifQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Team-{{$randomNoun}}\",\n    \"team_lead_name\": \"{{$randomFullName}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/company/3843ce4b-c197-4d0c-9891-3586d40213cf/team/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"company",
+								"3843ce4b-c197-4d0c-9891-3586d40213cf",
+								"team",
+								"create"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Company Team",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Team-{{$randomNoun}}\",\n    \"team_lead_name\": \"{{$randomFullName}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/company/3843ce4b-c197-4d0c-9891-3586d40213cf/team/create",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"company",
+										"3843ce4b-c197-4d0c-9891-3586d40213cf",
+										"team",
+										"create"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "45"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2d-he8ywnD7Sm64LdC7H9Km0oIGonk\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 12 Jun 2023 14:28:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"24a4f646-70b8-4a98-a1c5-262c733d124f\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Company Team List",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Il9KMThjVS1ZME9EU204TWNVNUlUOSJ9.eyJpc3MiOiJodHRwczovL2Rldi1vcXduaHB1MXcyajB3Mzg1LnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJZU3dCdTY4UXZrOWViSjNvQ1RreElCTFJMa3M3VTV5c0BjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly90ZWNod29uZG9lLWFwaS5kZW1vLmNvbSIsImlhdCI6MTY4NjU2MzMzMywiZXhwIjoxNjg2NjQ5NzMzLCJhenAiOiJZU3dCdTY4UXZrOWViSjNvQ1RreElCTFJMa3M3VTV5cyIsImd0eSI6ImNsaWVudC1jcmVkZW50aWFscyJ9.i7BLRQ1FWlvBVKJHvcwj_vcix_rs63QiJ2jvEiMKS06Sd2QZErNoBRJc9Alwq5MkC7QrSQs_hb1LbjyTD13VGv7VhEIZqT5rwEcqbNPT7ypAF3uQ84zhN0jP87Xo3vmsCcB4d01PRuhBCYKEom6BaFnlF6uemO2PJ9hc6uSyruauI2D8EqeQ5EC7paguMmorWWz1xiMhDTi7HzT-cs_nx4v-vDhtFJccI-NsLtRNrNdRICFQOr42cG27dNKZeVJ4vVtnzlMa_5vEhZW3JpGBr2xBORkxuUPb7R1lNDnXUmOxa4USLmoQj1o-ktRw9t4X56bLawkhDPKBfDvdh7IifQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/company/3843ce4b-c197-4d0c-9891-3586d40213cf/teams",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"company",
+								"3843ce4b-c197-4d0c-9891-3586d40213cf",
+								"teams"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Company Team List",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/company/3843ce4b-c197-4d0c-9891-3586d40213cf/teams",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"company",
+										"3843ce4b-c197-4d0c-9891-3586d40213cf",
+										"teams"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "546"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"222-6eIGzpowLlk4kW0BxCnVEElJGyU\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 12 Jun 2023 14:29:37 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"total\": 5,\n    \"limit\": 10,\n    \"page\": 1,\n    \"teams\": [\n        {\n            \"id\": \"24a4f646-70b8-4a98-a1c5-262c733d124f\",\n            \"name\": \"Team-bandwidth\",\n            \"team_lead_name\": \"Darla Metz\"\n        },\n        {\n            \"id\": \"648bf196-182c-4c1f-879c-b6dbcc474185\",\n            \"name\": \"Team-capacitor\",\n            \"team_lead_name\": \"Melody Monahan\"\n        },\n        {\n            \"id\": \"4b44f034-83b4-444d-b200-66cce0068c77\",\n            \"name\": \"Team-monitor\",\n            \"team_lead_name\": \"Rudolph Hauck\"\n        },\n        {\n            \"id\": \"4c4ef02b-6309-40da-823a-f4309f45c91f\",\n            \"name\": \"Team-program\",\n            \"team_lead_name\": \"Maxine Schmitt\"\n        },\n        {\n            \"id\": \"c1484c6b-2098-4221-ad8c-9febf64d866f\",\n            \"name\": \"Team-feed\",\n            \"team_lead_name\": \"Jake Schiller\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get All Teams List",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Il9KMThjVS1ZME9EU204TWNVNUlUOSJ9.eyJpc3MiOiJodHRwczovL2Rldi1vcXduaHB1MXcyajB3Mzg1LnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJZU3dCdTY4UXZrOWViSjNvQ1RreElCTFJMa3M3VTV5c0BjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly90ZWNod29uZG9lLWFwaS5kZW1vLmNvbSIsImlhdCI6MTY4NjU2MzMzMywiZXhwIjoxNjg2NjQ5NzMzLCJhenAiOiJZU3dCdTY4UXZrOWViSjNvQ1RreElCTFJMa3M3VTV5cyIsImd0eSI6ImNsaWVudC1jcmVkZW50aWFscyJ9.i7BLRQ1FWlvBVKJHvcwj_vcix_rs63QiJ2jvEiMKS06Sd2QZErNoBRJc9Alwq5MkC7QrSQs_hb1LbjyTD13VGv7VhEIZqT5rwEcqbNPT7ypAF3uQ84zhN0jP87Xo3vmsCcB4d01PRuhBCYKEom6BaFnlF6uemO2PJ9hc6uSyruauI2D8EqeQ5EC7paguMmorWWz1xiMhDTi7HzT-cs_nx4v-vDhtFJccI-NsLtRNrNdRICFQOr42cG27dNKZeVJ4vVtnzlMa_5vEhZW3JpGBr2xBORkxuUPb7R1lNDnXUmOxa4USLmoQj1o-ktRw9t4X56bLawkhDPKBfDvdh7IifQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/team/list?name=team&limit=5&page=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"team",
+								"list"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "team"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get All Teams List",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/team/list?name=team&limit=5&page=1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"team",
+										"list"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "team"
+										},
+										{
+											"key": "limit",
+											"value": "5"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "804"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"324-foWh0mktL+5IJUllWmioLpMi7II\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 12 Jun 2023 14:30:17 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"total\": 9,\n    \"limit\": 5,\n    \"page\": 1,\n    \"teams\": [\n        {\n            \"id\": \"b9599c38-0bda-49b1-ab75-6e77d291a650\",\n            \"name\": \"Team-hard drive\",\n            \"company_id\": {\n                \"id\": \"29efda8a-d14c-4e8b-a676-36a73a61ec25\",\n                \"name\": \"Streich Inc\"\n            }\n        },\n        {\n            \"id\": \"839575f6-e736-4252-a916-82159aa26aff\",\n            \"name\": \"Team-array\",\n            \"company_id\": {\n                \"id\": \"29efda8a-d14c-4e8b-a676-36a73a61ec25\",\n                \"name\": \"Streich Inc\"\n            }\n        },\n        {\n            \"id\": \"66aff27e-0c10-4abe-83f3-78711a0c31cd\",\n            \"name\": \"Team-microchip\",\n            \"company_id\": {\n                \"id\": \"29efda8a-d14c-4e8b-a676-36a73a61ec25\",\n                \"name\": \"Streich Inc\"\n            }\n        },\n        {\n            \"id\": \"1f80aae2-5a28-482c-baf6-7bf6f86e1a77\",\n            \"name\": \"Team-panel\",\n            \"company_id\": {\n                \"id\": \"4bc2f475-6a66-4469-bf35-b6dab2148653\",\n                \"name\": \"Funk, Boyer and Steuber\"\n            }\n        },\n        {\n            \"id\": \"24a4f646-70b8-4a98-a1c5-262c733d124f\",\n            \"name\": \"Team-bandwidth\",\n            \"company_id\": {\n                \"id\": \"3843ce4b-c197-4d0c-9891-3586d40213cf\",\n                \"name\": \"Oberbrunner and Sons\"\n            }\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Team Details",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Il9KMThjVS1ZME9EU204TWNVNUlUOSJ9.eyJpc3MiOiJodHRwczovL2Rldi1vcXduaHB1MXcyajB3Mzg1LnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJZU3dCdTY4UXZrOWViSjNvQ1RreElCTFJMa3M3VTV5c0BjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly90ZWNod29uZG9lLWFwaS5kZW1vLmNvbSIsImlhdCI6MTY4NjU2MzMzMywiZXhwIjoxNjg2NjQ5NzMzLCJhenAiOiJZU3dCdTY4UXZrOWViSjNvQ1RreElCTFJMa3M3VTV5cyIsImd0eSI6ImNsaWVudC1jcmVkZW50aWFscyJ9.i7BLRQ1FWlvBVKJHvcwj_vcix_rs63QiJ2jvEiMKS06Sd2QZErNoBRJc9Alwq5MkC7QrSQs_hb1LbjyTD13VGv7VhEIZqT5rwEcqbNPT7ypAF3uQ84zhN0jP87Xo3vmsCcB4d01PRuhBCYKEom6BaFnlF6uemO2PJ9hc6uSyruauI2D8EqeQ5EC7paguMmorWWz1xiMhDTi7HzT-cs_nx4v-vDhtFJccI-NsLtRNrNdRICFQOr42cG27dNKZeVJ4vVtnzlMa_5vEhZW3JpGBr2xBORkxuUPb7R1lNDnXUmOxa4USLmoQj1o-ktRw9t4X56bLawkhDPKBfDvdh7IifQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/team/4c4ef02b-6309-40da-823a-f4309f45c91f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"team",
+								"4c4ef02b-6309-40da-823a-f4309f45c91f"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Team Details",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/team/4c4ef02b-6309-40da-823a-f4309f45c91f",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"team",
+										"4c4ef02b-6309-40da-823a-f4309f45c91f"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "254"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"fe-EJvFF7xkvnGodPOy3A8fQKbwAEE\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 12 Jun 2023 14:30:39 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"4c4ef02b-6309-40da-823a-f4309f45c91f\",\n    \"name\": \"Team-program\",\n    \"team_lead_name\": \"Maxine Schmitt\",\n    \"company_id\": {\n        \"id\": \"3843ce4b-c197-4d0c-9891-3586d40213cf\",\n        \"name\": \"Oberbrunner and Sons\",\n        \"ceo\": \"Miss Samuel Bode\",\n        \"inception\": \"2022-09-12T03:01:17.000Z\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Generate Auth Token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "content-type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"client_id\":\"YSwBu68Qvk9ebJ3oCTkxIBLRLks7U5ys\",\"client_secret\":\"CFvIeB7D4DY0U-kfWMD7miONYgSJTtiwRDDisDbH_rDiAEE8LDMjza_ozJxCygUw\",\"audience\":\"https://techwondoe-api.demo.com\",\"grant_type\":\"client_credentials\"}"
+				},
+				"url": {
+					"raw": "https://dev-oqwnhpu1w2j0w385.us.auth0.com/oauth/token",
+					"protocol": "https",
+					"host": [
+						"dev-oqwnhpu1w2j0w385",
+						"us",
+						"auth0",
+						"com"
+					],
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Generate Auth Token",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "content-type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"client_id\":\"YSwBu68Qvk9ebJ3oCTkxIBLRLks7U5ys\",\"client_secret\":\"CFvIeB7D4DY0U-kfWMD7miONYgSJTtiwRDDisDbH_rDiAEE8LDMjza_ozJxCygUw\",\"audience\":\"https://techwondoe-api.demo.com\",\"grant_type\":\"client_credentials\"}"
+						},
+						"url": {
+							"raw": "https://dev-oqwnhpu1w2j0w385.us.auth0.com/oauth/token",
+							"protocol": "https",
+							"host": [
+								"dev-oqwnhpu1w2j0w385",
+								"us",
+								"auth0",
+								"com"
+							],
+							"path": [
+								"oauth",
+								"token"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 12 Jun 2023 14:24:39 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "7d62c233adf2f3b1-BOM"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding, Origin"
+						},
+						{
+							"key": "ot-baggage-auth0-request-id",
+							"value": "7d62c233adf2f3b1"
+						},
+						{
+							"key": "ot-tracer-sampled",
+							"value": "true"
+						},
+						{
+							"key": "ot-tracer-spanid",
+							"value": "26e42e906035068d"
+						},
+						{
+							"key": "ot-tracer-traceid",
+							"value": "62776b55031e081b"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "traceparent",
+							"value": "00-000000000000000062776b55031e081b-26e42e906035068d-01"
+						},
+						{
+							"key": "tracestate",
+							"value": "auth0-request-id=7d62c233adf2f3b1,auth0=true"
+						},
+						{
+							"key": "X-Auth0-RequestId",
+							"value": "a061b01e1c639a6da0c2"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "300"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "299"
+						},
+						{
+							"key": "X-RateLimit-Reset",
+							"value": "1686579880"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"access_token\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Il9KMThjVS1ZME9EU204TWNVNUlUOSJ9.eyJpc3MiOiJodHRwczovL2Rldi1vcXduaHB1MXcyajB3Mzg1LnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJZU3dCdTY4UXZrOWViSjNvQ1RreElCTFJMa3M3VTV5c0BjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly90ZWNod29uZG9lLWFwaS5kZW1vLmNvbSIsImlhdCI6MTY4NjU3OTg3OSwiZXhwIjoxNjg2NjY2Mjc5LCJhenAiOiJZU3dCdTY4UXZrOWViSjNvQ1RreElCTFJMa3M3VTV5cyIsImd0eSI6ImNsaWVudC1jcmVkZW50aWFscyIsInBlcm1pc3Npb25zIjpbXX0.bHsPhY55SEomuokU7saklIfuPF-TwO2sfUWL-a8Dv8v4jBj-Lsas_2-MJLUDCNK1bIh-0Kph3jrYN6a1AGAaYYeGGip9n6xOEWV4UXTk4aPDKPDtiYtRFE-bwDfDxUUK7ePu3n8rcHg5RuAPYByj99raI4X-7uJpoIV-8cSNioKQMa8wjdF_sYj7KeUTVzQJmt4QHXM5EK2cG5CurQ5lSkwI1chfuWATwiH700jSd_RMJ7foHlzpQsEidDokKmXjiu6rvuihwIuzMAHN2VoPj_6JeMTEwf4n_hbfRNVX92vcatvi77DFPZuiGHS6mlUzi1Swaa1zS-OPeQ2YFwkpMg\",\n    \"expires_in\": 86400,\n    \"token_type\": \"Bearer\"\n}"
+				}
+			]
+		}
+	]
+}
