@@ -1,18 +1,4 @@
 
-# NestJS App
-
-A CRUD app with authentication.
-
-
-## Tech Stack
-
-**Client:** Postman
-
-**Server:** Node, NestJS
-
-**Database:** MongoDB
-
-
 ## Installation
 
 #### 1. Clone the project
@@ -32,4 +18,9 @@ $ npm install
 ### 4. Start the server
 ```
 $  npm run start:dev
+```
+### 5. To Run with Docker
+```
+docker-compose -f docker-compose.yml -f docker-compose.dev.yml up --detach --build
+
 ```
