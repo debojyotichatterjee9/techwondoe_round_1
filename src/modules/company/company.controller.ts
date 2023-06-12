@@ -3,6 +3,9 @@ import { CreateCompanyDto } from './dtos/create-company.dto';
 import { ReturnCreateCompanyDto } from './dtos/return-create-company.dto';
 import { CompanyListDto } from './dtos/return-company-list.dto';
 import { CompanyDto } from './dtos/return-company.dto';
+import { CreateTeamDto } from '../team/dtos/create-team.dto';
+import { ReturnCreateTeamDto } from '../team/dtos/return-create-team.dto';
+import { CompanyTeamListDto } from '../team/dtos/return-company-team-list.dto';
 import { CompanyService } from './company.service';
 import { Serialize } from 'src/interceptors/serialize.interceptor';
 
@@ -28,5 +31,17 @@ export class CompanyController {
   @Get('/:id')
   getCompanyDetails(@Param('id') id: string) {
     return this.companyService.getCompanyDetails(id);
+  }
+
+  @Serialize(ReturnCreateTeamDto)
+  @Post('/:companyId/team/create')
+  createTeam(@Param('companyId') companyId: string, @Body() payload: CreateTeamDto) {
+    return this.companyService.createTeam(payload, companyId);
+  }
+
+  @Serialize(CompanyTeamListDto)
+  @Get('/:companyId/teams')
+  getCompanyTeamList(@Param('companyId') companyId: string, @Query('name') name: string, @Query('page') page: number, @Query('limit') limit: number) {
+    return this.companyService.getCompanyTeamList(companyId, name, page, limit);
   }
 }

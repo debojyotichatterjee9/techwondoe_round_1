@@ -6,11 +6,11 @@ export type TeamDocument = HydratedDocument<Team>;
 
 @Schema()
 export class Team {
-@Prop({primary: true, default: uuidv4()})
+@Prop({default: uuidv4})
   _id: String
   @Prop({ required: true })
   name: String;
-  @Prop()
+  @Prop({ref:"Company"})
   company_id: String;
   @Prop()
   team_lead_name: String;
